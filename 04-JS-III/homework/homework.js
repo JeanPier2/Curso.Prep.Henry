@@ -113,7 +113,6 @@ function cuentoElementos(arreglo) {
       n++;
     }
   }
-
   return n;
 }
 
@@ -122,18 +121,46 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario.
   //Escribe tu código aquí
+  switch (numeroDeDia) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return "Es dia Laboral";
+      break;
+    case 6:
+    case 7:
+      return "Es fin de semana";
+  }
 }
 
 function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
+  if (
+    n === 9 ||
+    (n > 9 && n < 10) ||
+    (n > 90 && n < 100) ||
+    (n > 900 && n < 999) ||
+    (n > 9000 && n < 9999)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí
+  let aux = arreglo[0];
+  for (let index = 0; index < arreglo.length; index++) {
+    if (aux === arreglo[index]) {
+            
+    }
+  }
 }
 
 function mesesDelAño(array) {
