@@ -66,24 +66,65 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
-  let x = str.length;
-  let strAlReves = "";
-  let xAux = 1;
-  while (x !== 0) {
-    strAlReves += str[str.length - xAux++];
-    x--;
-  }
-  return strAlReves;
-}
-console.log(asAmirror("The Henry Challenge is close!"));
 
+  /* GUARDA CADA PALABRA EN UN ARRAY */
+  str += " ";
+  let array = [];
+  let palabra = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) !== " ") {
+      palabra += str.charAt(i);
+    } else {
+      array.push(palabra);
+      palabra = "";
+    }
+  }
+  /* 1. INVIERTE EL ORDEN DE LAS LETRAS DE LA PALABRA
+     2. AGREGA LAS PALABRAS INVERTIDAS AL ARRAY */
+  let array2 = [];
+  let strAlreves = "";
+  for (let i = 0; i < array.length; i++) {
+    let palabra = array[i];
+    strAlreves = "";
+    for (let x = palabra.length; x > 0; x--) {
+      strAlreves += palabra[x - 1];
+    }
+    array2.push(strAlreves);
+  }
+  /* CONCATENA TODAS LAS PALABRAS YA INVERTIDAS QUE TIENE EL ARRAY2 */
+  let cadenaCompleta = "";
+  for (let i = 0; i < array2.length; i++) {
+    if (i === array2.length - 1) {
+      cadenaCompleta += array2[i];
+      break;
+    }
+    cadenaCompleta += array2[i] + " ";
+  }
+  return cadenaCompleta;
+}
+console.log(asAmirror("Abra cadabra pata de cabra"));
 
 function capicua(numero) {
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  numero = "" + numero;
+  let array = [];
+  for (let i = 0; i < numero.length; i++) {
+    array.push(numero[i]);
+  }
+  let suma1 = 0;
+  let suma2 = 0;
+
+  for (let x = 0; x < Math.round(array.length / 2); x++) {
+    suma1 += Number (array[x]);
+  }
+
+  return suma1;
 }
+console.log(Math.round(5 / 2));
+console.log(capicua(23432));
 
 function deleteAbc(cadena) {
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada
